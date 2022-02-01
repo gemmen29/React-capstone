@@ -1,14 +1,14 @@
 const baseURL = 'https://api.covid19tracking.narrativa.com/api';
 
-const getAllCountriesData = async () => {
-  const response = await fetch(`${missionsURL}?date_from=2022-01-31`);
+export const getAllCountriesAPI = async () => {
+  const response = await fetch(`${baseURL}?date_from=2022-01-31`);
   const data = await response.json();
   return data;
 };
 
-getCountryDetails = async (countryName) => {
+export const getCountryDetailsAPI = async (countryName) => {
   const response = await fetch(
-    `${missionsURL}/country/${countryName}?date_from=2022-01-31`,
+    `${baseURL}/country/${countryName}?date_from=2022-01-31`,
   );
   const data = await response.json();
   return data;
