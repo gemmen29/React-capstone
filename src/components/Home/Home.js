@@ -6,7 +6,6 @@ import styles from './Home.module.css';
 
 const Home = () => {
   const countries = useSelector((state) => state.countries);
-  console.log(countries);
 
   return (
     <div className={`${styles.Home} grid grid-cols-2`}>
