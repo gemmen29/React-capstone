@@ -3,12 +3,12 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import countriesReducer from './covid/covid';
+import covidReducer from './covid/covid';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
-  countries: countriesReducer,
+  data: covidReducer,
 });
 
 const store = createStore(
