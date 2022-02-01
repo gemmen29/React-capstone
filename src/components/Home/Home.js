@@ -19,7 +19,7 @@ const Home = () => {
   }, [countries]);
 
   const searchHandler = (e) => {
-    const list = countries.filter((country) => country.name.includes(e.target.value));
+    const list = countries.filter((country) => country.name.toLowerCase().includes(e.target.value));
     setDisplayedCountries(list);
   };
 
