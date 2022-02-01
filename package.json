@@ -13,7 +13,8 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -62,7 +63,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^3.2.3",
     "postcss": "^8.4.5",
-    "redux-logger": "^3.0.6",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
