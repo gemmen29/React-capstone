@@ -1,6 +1,5 @@
 {
-  "name": "template-react-project",
-  "homepage": "https://gemmen29.github.io/template-react-project/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
