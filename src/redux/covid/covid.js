@@ -1,9 +1,10 @@
 import { getAllCountriesAPI, getCountryDetailsAPI } from '../../api/APIHelper';
 
 const GET_ALL_COUNTRIES = 'covidTracker/GET_ALL_COUNTRIES';
-const GET_COUNTRY_DETAILS = 'covidTracker/GET_COUNTRY_DETAILS';
+const GET_REGIONS = 'covidTracker/GET_REGIONS';
+const RESET_REGIONS = 'covidTracker/RESET_REGIONS';
 
-const initialState = {};
+const initialState = { countries: [], regions: [] };
 
 export const getAllCountries = () => async (dispatch) => {
   const countries = await getAllCountriesAPI();
@@ -16,24 +17,35 @@ export const getAllCountries = () => async (dispatch) => {
   });
 };
 
-export const getCountryDetails = (countryName) => async (dispatch) => {
-  const countryDetails = await getCountryDetailsAPI(countryName);
+export const getRegions = (countryName) => async (dispatch) => {
+  const details = await getCountryDetailsAPI(countryName);
+  const keys = Object.keys(details.dates);
 
-  const countryDetailsForDispatch = [...countryDetails];
+  const regions = details.dates[keys[keys.length - 1]].countries[
+    countryName
+  ].regions.map((region) => ({
+    name: region.name,
+    today_confirmed: region.today_confirmed,
+  }));
 
   dispatch({
-    type: GET_COUNTRY_DETAILS,
-    payload: countryDetailsForDispatch,
+    type: GET_REGIONS,
+    payload: regions,
   });
 };
+
+export const resetRegions = () => ({ type: RESET_REGIONS });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_COUNTRIES:
-      return action.payload;
+      return { countries: action.payload, regions: [] };
 
-    case GET_COUNTRY_DETAILS:
-      return action.payload;
+    case GET_REGIONS:
+      return { ...state, regions: action.payload };
+
+    case RESET_REGIONS:
+      return { ...state, regions: [] };
 
     default:
       return state;
