@@ -4,7 +4,11 @@ const GET_ALL_COUNTRIES = 'covidTracker/GET_ALL_COUNTRIES';
 const GET_REGIONS = 'covidTracker/GET_REGIONS';
 const RESET_REGIONS = 'covidTracker/RESET_REGIONS';
 
-const initialState = { countries: [], regions: [], total: 0 };
+const initialState = {
+  countries: [],
+  regions: { regions: [], total: 0 },
+  total: 0,
+};
 
 export const getAllCountries = () => async (dispatch) => {
   const data = await getAllCountriesAPI();
@@ -28,17 +32,20 @@ export const getAllCountries = () => async (dispatch) => {
 export const getRegions = (countryName) => async (dispatch) => {
   const details = await getCountryDetailsAPI(countryName);
   const keys = Object.keys(details.dates);
-
   const regions = details.dates[keys[keys.length - 1]].countries[
     countryName
   ].regions.map((region) => ({
     name: region.name,
     today_confirmed: region.today_confirmed,
   }));
-
   dispatch({
     type: GET_REGIONS,
-    payload: regions,
+    payload: {
+      regions,
+      total_countries:
+        details.dates[keys[keys.length - 1]].countries[countryName]
+          .today_confirmed,
+    },
   });
 };
 
@@ -50,15 +57,21 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload.countries,
-        regions: [],
+        regions: { regions: [], total: 0 },
         total: action.payload.total,
       };
 
     case GET_REGIONS:
-      return { ...state, regions: action.payload };
+      return {
+        ...state,
+        regions: {
+          regions: action.payload.regions,
+          total: action.payload.total_countries,
+        },
+      };
 
     case RESET_REGIONS:
-      return { ...state, regions: [] };
+      return { ...state, regions: { regions: [], total: 0 } };
 
     default:
       return state;
