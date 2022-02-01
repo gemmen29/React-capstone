@@ -15,9 +15,13 @@ const Home = () => {
 
   return (
     <div className={`${styles.Home} grid grid-cols-2`}>
-      {Object.keys(countries).map((country) => (
-        <NavLink key={country} to={`/${country}`} onClick={navlinkHandler}>
-          {country}
+      {countries.map((country) => (
+        <NavLink
+          key={country.name}
+          to={`/${country.name}`}
+          onClick={navlinkHandler}
+        >
+          {`${country.name} ${country.today_confirmed}`}
         </NavLink>
       ))}
     </div>

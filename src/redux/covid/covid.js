@@ -7,9 +7,14 @@ const RESET_REGIONS = 'covidTracker/RESET_REGIONS';
 const initialState = { countries: [], regions: [] };
 
 export const getAllCountries = () => async (dispatch) => {
-  const countries = await getAllCountriesAPI();
+  let countries = await getAllCountriesAPI();
   const keys = Object.keys(countries.dates);
-  const countriesForDispatch = countries.dates[keys[keys.length - 1]].countries;
+  countries = countries.dates[keys[keys.length - 1]].countries;
+
+  const countriesForDispatch = Object.entries(countries).map((country) => ({
+    name: country[0],
+    today_confirmed: country[1].today_confirmed,
+  }));
 
   dispatch({
     type: GET_ALL_COUNTRIES,
