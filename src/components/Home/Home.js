@@ -20,11 +20,15 @@ const Home = () => {
     setDisplayedCountries(countries);
   }, [countries]);
 
+  useEffect(() => {
+    navlinkHandler();
+  }, []);
+
   const searchHandler = (e) => {
     const list = countries.filter(
       (
         country, // eslint-disable
-      ) => country.name.toLowerCase().includes(e.target.value), // eslint-disable
+      ) => country.name.toLowerCase().includes(e.target.value.toLowerCase()), // eslint-disable
     );
     setDisplayedCountries(list);
   };

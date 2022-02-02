@@ -8,6 +8,7 @@ const initialState = {
   countries: [],
   regions: { regions: [], total: 0 },
   total: 0,
+  show: false,
 };
 
 export const getAllCountries = () => async (dispatch) => {
@@ -59,6 +60,7 @@ const reducer = (state = initialState, action) => {
         countries: action.payload.countries,
         regions: { regions: [], total: 0 },
         total: action.payload.total,
+        show: false,
       };
 
     case GET_REGIONS:
@@ -68,10 +70,11 @@ const reducer = (state = initialState, action) => {
           regions: action.payload.regions,
           total: action.payload.total_countries,
         },
+        show: true,
       };
 
     case RESET_REGIONS:
-      return { ...state, regions: { regions: [], total: 0 } };
+      return { ...state, regions: { regions: [], total: 0 }, show: false };
 
     default:
       return state;
