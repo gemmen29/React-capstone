@@ -1,3 +1,4 @@
-.Home {
-  text-decoration: none;
+.navlinks:nth-child(4n + 2),
+.navlinks:nth-child(4n + 3) {
+  background-color: #0c4a6e;
 }
