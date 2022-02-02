@@ -50,26 +50,32 @@ const Home = () => {
           className="shadow appearance-none border rounded w-4/12 py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <div className="grid grid-cols-2">
+      <ul className="grid grid-cols-2">
         {displayedCountries.map((country) => (
-          <NavLink
+          <li
+            role="listitem"
             key={country.name}
-            to={`/${country.name}`}
-            onClick={navlinkHandler}
-            className={`${styles.navlinks} flex flex-col items-center py-3 px-2 bg-sky-700`}
+            className={`${styles.navlinks} py-3 px-2 bg-sky-700`}
           >
-            <GrMapLocation className="text-8xl text-center" />
-            <div className="ml-auto text-white flex flex-col gap-2 text-3xl font-bold items-end">
-              <span className="flex flex-col items-end">
-                {country.name.split(' ').map((piece) => (
-                  <span key={piece}>{piece}</span>
-                ))}
-              </span>
-              <span>{country.today_confirmed.toLocaleString('en-US')}</span>
-            </div>
-          </NavLink>
+            <NavLink
+              key={country.name}
+              to={`/${country.name}`}
+              onClick={navlinkHandler}
+              className="w-full flex flex-col items-center"
+            >
+              <GrMapLocation className="text-8xl text-center" />
+              <div className="ml-auto text-white flex flex-col gap-2 text-3xl font-bold items-end">
+                <span className="flex flex-col items-end">
+                  {country.name.split(' ').map((piece) => (
+                    <span key={piece}>{piece}</span>
+                  ))}
+                </span>
+                <span>{country.today_confirmed.toLocaleString('en-US')}</span>
+              </div>
+            </NavLink>
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   );
 };
