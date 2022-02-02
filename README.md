@@ -23,6 +23,10 @@ Additional description about the project and its features.
 
 [Live Demo Link](https://keen-murdock-9ac8fc.netlify.app/)
 
+## Video Link
+
+[Video Link](https://www.loom.com/share/8a24b74c37aa43de8e4706f12bf7af51)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps:
