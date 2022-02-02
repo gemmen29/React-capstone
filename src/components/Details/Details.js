@@ -26,7 +26,7 @@ const Details = () => {
   return (
     <>
       {regions.total === 0 && (
-        <div className="flex justify-center items-center min-w-[100vw] min-h-[100vh]">
+        <div className="flex justify-center items-center h-screen">
           <ClipLoader color="white" css={override} size={150} />
         </div>
       )}
@@ -48,6 +48,11 @@ const Details = () => {
           <div className="bg-sky-700 text-lg px-5 py-1 text-white">
             Country Breakdown - 2022
           </div>
+          {regions.regions.length === 0 && (
+            <div className="text-center text-white text-2xl text-bold py-2">
+              No regions data found.
+            </div>
+          )}
           <ul className="flex flex-col">
             {regions.regions.map((region) => (
               <li
