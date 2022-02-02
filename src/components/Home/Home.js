@@ -32,11 +32,8 @@ const Home = () => {
   }, []);
 
   const searchHandler = (e) => {
-    const list = countries.filter(
-      (
-        country, // eslint-disable
-      ) => country.name.toLowerCase().includes(e.target.value.toLowerCase()), // eslint-disable
-    );
+    const value = e.target.value.toLowerCase();
+    const list = countries.filter((country) => country.name.toLowerCase().includes(value));
     setDisplayedCountries(list);
   };
 
