@@ -23,7 +23,7 @@ const Details = () => {
         <div className="flex flex-col items-end text-3xl font-semibold text-white">
           <span>
             <span className="flex flex-col items-end">
-              {params.country_name.split(' ').map((piece) => (
+              {params.country_name?.split(' ').map((piece) => (
                 <span key={piece}>{piece}</span>
               ))}
             </span>
@@ -37,6 +37,7 @@ const Details = () => {
       <ul className="flex flex-col">
         {regions.regions.map((region) => (
           <li
+            role="listitem"
             key={region.name}
             className="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
           >
