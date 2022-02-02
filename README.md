@@ -1,8 +1,9 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Covid Tracker
 
-> One paragraph statement about the project.
+> This is a project to get all covid cases from all over the world that built
+> with react, redux and fetch API.
 
 ![screenshot](./app_screenshot.png)
 
@@ -15,10 +16,12 @@ Additional description about the project and its features.
 - Javascript
 - Webpacks
 - React
+- Redux
+- API
 
 ## Live Demo
 
-[Live Demo Link](https://gemmen29.github.io/{Repo-Name}/)
+[Live Demo Link](https://keen-murdock-9ac8fc.netlify.app/)
 
 ## Getting Started
 
