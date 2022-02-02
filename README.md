@@ -5,7 +5,7 @@
 > This is a project to get all covid cases from all over the world that built
 > with react, redux and fetch API.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.gif)
 
 Additional description about the project and its features.
 
