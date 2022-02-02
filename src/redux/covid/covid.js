@@ -43,7 +43,7 @@ export const getRegions = (countryName) => async (dispatch) => {
     type: GET_REGIONS,
     payload: {
       regions,
-      total_countries:
+      total_country:
         details.dates[keys[keys.length - 1]].countries[countryName]
           .today_confirmed,
     },
@@ -68,7 +68,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         regions: {
           regions: action.payload.regions,
-          total: action.payload.total_countries,
+          total: action.payload.total_country,
         },
         show: true,
       };
