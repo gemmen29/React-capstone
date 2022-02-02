@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       {countries.length === 0 && (
-        <div className="flex justify-center items-center min-w-[100vw] min-h-[100vh]">
+        <div className="flex justify-center items-center w-screen h-screen">
           <ClipLoader color="white" css={override} size={150} />
         </div>
       )}
