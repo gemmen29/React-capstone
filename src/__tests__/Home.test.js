@@ -33,7 +33,7 @@ describe('Home component', () => {
       </Provider>,
     );
     expect(tree).toMatchSnapshot();
-    const listItemElements = screen.getAllByRole('listitem');
+    const listItemElements = screen.getAllByTestId('listitem');
     expect(listItemElements).toHaveLength(4);
   });
 });

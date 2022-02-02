@@ -47,7 +47,7 @@ Object {
       >
         <li
           class="navlinks py-3 px-2 bg-sky-700"
-          role="listitem"
+          data-testid="listitem"
         >
           <a
             class="w-full flex flex-col items-center"
@@ -88,7 +88,7 @@ Object {
         </li>
         <li
           class="navlinks py-3 px-2 bg-sky-700"
-          role="listitem"
+          data-testid="listitem"
         >
           <a
             class="w-full flex flex-col items-center"
@@ -129,7 +129,7 @@ Object {
         </li>
         <li
           class="navlinks py-3 px-2 bg-sky-700"
-          role="listitem"
+          data-testid="listitem"
         >
           <a
             class="w-full flex flex-col items-center"
@@ -170,7 +170,7 @@ Object {
         </li>
         <li
           class="navlinks py-3 px-2 bg-sky-700"
-          role="listitem"
+          data-testid="listitem"
         >
           <a
             class="w-full flex flex-col items-center"
@@ -255,7 +255,7 @@ Object {
     >
       <li
         class="navlinks py-3 px-2 bg-sky-700"
-        role="listitem"
+        data-testid="listitem"
       >
         <a
           class="w-full flex flex-col items-center"
@@ -296,7 +296,7 @@ Object {
       </li>
       <li
         class="navlinks py-3 px-2 bg-sky-700"
-        role="listitem"
+        data-testid="listitem"
       >
         <a
           class="w-full flex flex-col items-center"
@@ -337,7 +337,7 @@ Object {
       </li>
       <li
         class="navlinks py-3 px-2 bg-sky-700"
-        role="listitem"
+        data-testid="listitem"
       >
         <a
           class="w-full flex flex-col items-center"
@@ -378,7 +378,7 @@ Object {
       </li>
       <li
         class="navlinks py-3 px-2 bg-sky-700"
-        role="listitem"
+        data-testid="listitem"
       >
         <a
           class="w-full flex flex-col items-center"

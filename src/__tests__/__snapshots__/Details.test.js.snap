@@ -45,7 +45,7 @@ Object {
       >
         <li
           class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-          role="listitem"
+          data-testid="listitem"
         >
           <span
             class="flex flex-col items-start"
@@ -60,7 +60,7 @@ Object {
         </li>
         <li
           class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-          role="listitem"
+          data-testid="listitem"
         >
           <span
             class="flex flex-col items-start"
@@ -75,7 +75,7 @@ Object {
         </li>
         <li
           class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-          role="listitem"
+          data-testid="listitem"
         >
           <span
             class="flex flex-col items-start"
@@ -90,7 +90,7 @@ Object {
         </li>
         <li
           class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-          role="listitem"
+          data-testid="listitem"
         >
           <span
             class="flex flex-col items-start"
@@ -147,7 +147,7 @@ Object {
     >
       <li
         class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-        role="listitem"
+        data-testid="listitem"
       >
         <span
           class="flex flex-col items-start"
@@ -162,7 +162,7 @@ Object {
       </li>
       <li
         class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-        role="listitem"
+        data-testid="listitem"
       >
         <span
           class="flex flex-col items-start"
@@ -177,7 +177,7 @@ Object {
       </li>
       <li
         class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-        role="listitem"
+        data-testid="listitem"
       >
         <span
           class="flex flex-col items-start"
@@ -192,7 +192,7 @@ Object {
       </li>
       <li
         class="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
-        role="listitem"
+        data-testid="listitem"
       >
         <span
           class="flex flex-col items-start"

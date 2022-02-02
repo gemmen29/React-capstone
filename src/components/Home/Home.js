@@ -53,7 +53,7 @@ const Home = () => {
       <ul className="grid grid-cols-2">
         {displayedCountries.map((country) => (
           <li
-            role="listitem"
+            data-testId="listitem"
             key={country.name}
             className={`${styles.navlinks} py-3 px-2 bg-sky-700`}
           >

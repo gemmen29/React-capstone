@@ -37,7 +37,7 @@ const Details = () => {
       <ul className="flex flex-col">
         {regions.regions.map((region) => (
           <li
-            role="listitem"
+            data-testId="listitem"
             key={region.name}
             className="flex justify-between items-center px-6 py-6 even:bg-sky-700 text-white text-3xl text-semibold"
           >
