@@ -10,7 +10,7 @@ const RESET_REGIONS = 'covidTracker/RESET_REGIONS';
 
 const initialState = {
   countries: [],
-  regions: { regions: [], total: 0 },
+  regions: [],
   total: 0,
   show: false,
 };
@@ -29,21 +29,13 @@ export const getAllCountries = () => async (dispatch) => {
 
 export const getRegions = (countryName) => async (dispatch) => {
   const details = await getCountryDetailsAPI(countryName);
-  const keys = Object.keys(details.dates);
-  const regions = details.dates[keys[keys.length - 1]].countries[
-    countryName
-  ].regions.map((region) => ({
-    name: region.name,
-    today_confirmed: region.today_confirmed,
-  }));
+  const regions = {
+    name: details.country,
+    cases: details.cases,
+  };
   dispatch({
     type: GET_REGIONS,
-    payload: {
-      regions,
-      total_country:
-        details.dates[keys[keys.length - 1]].countries[countryName]
-          .today_confirmed,
-    },
+    payload: regions,
   });
 };
 
@@ -55,7 +47,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload.countries,
-        regions: { regions: [], total: 0 },
+        regions: [],
         total: action.payload.total,
         show: false,
       };
@@ -63,15 +55,12 @@ const reducer = (state = initialState, action) => {
     case GET_REGIONS:
       return {
         ...state,
-        regions: {
-          regions: action.payload.regions,
-          total: action.payload.total_country,
-        },
+        regions: [...state.regions, action.payload],
         show: true,
       };
 
     case RESET_REGIONS:
-      return { ...state, regions: { regions: [], total: 0 }, show: false };
+      return { ...state, regions: [], show: false };
 
     default:
       return state;
