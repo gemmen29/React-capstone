@@ -56,7 +56,7 @@ const Home = () => {
           <div className="bg-sky-500 py-2 flex justify-center">
             <input
               type="text"
-              placeholder="Enter a country"
+              placeholder="Enter a contient"
               onChange={searchHandler}
               className="shadow appearance-none border rounded w-4/12 py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />

@@ -14,6 +14,7 @@ const Details = () => {
   ));
   const regions = useSelector((state) => state.data.regions);
   const [tempRegions, setTempRegions] = useState([]);
+  const [displayedRegions, setDisplayedRegions] = useState([]);
 
   useEffect(() => {
     if (country.length > 0) {
@@ -28,6 +29,16 @@ const Details = () => {
       });
     }
   }, [tempRegions]);
+
+  useEffect(() => {
+    setDisplayedRegions(regions);
+  }, [regions]);
+
+  const searchHandler = (e) => {
+    const value = e.target.value.toLowerCase();
+    const list = regions.filter((region) => region.name.toLowerCase().includes(value));
+    setDisplayedRegions(list);
+  };
 
   const override = css`
     display: block;
@@ -65,8 +76,16 @@ const Details = () => {
               No continent data found.
             </div>
           )}
+          <div className="bg-sky-500 py-2 flex justify-center">
+            <input
+              type="text"
+              placeholder="Enter a country"
+              onChange={searchHandler}
+              className="shadow appearance-none border rounded w-4/12 py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
           <ul className="flex flex-col">
-            {regions.map((region) => (
+            {displayedRegions.map((region) => (
               <li
                 data-testid="listitem"
                 key={region.name}
