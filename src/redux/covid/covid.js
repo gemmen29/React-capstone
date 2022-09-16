@@ -1,4 +1,8 @@
-import { getAllCountriesAPI, getCountryDetailsAPI } from '../../api/APIHelper';
+import {
+  getAllCountriesAPI,
+  getCountryDetailsAPI,
+  getAllCasesAPI,
+} from '../../api/APIHelper';
 
 const GET_ALL_COUNTRIES = 'covidTracker/GET_ALL_COUNTRIES';
 const GET_REGIONS = 'covidTracker/GET_REGIONS';
@@ -13,19 +17,12 @@ const initialState = {
 
 export const getAllCountries = () => async (dispatch) => {
   const data = await getAllCountriesAPI();
-  const keys = Object.keys(data.dates);
-  const countries = { ...data.dates[keys[keys.length - 1]].countries };
-
-  const countriesForDispatch = Object.entries(countries).map((country) => ({
-    name: country[0],
-    today_confirmed: country[1].today_confirmed,
-  }));
-
+  const total = await getAllCasesAPI();
   dispatch({
     type: GET_ALL_COUNTRIES,
     payload: {
-      countries: countriesForDispatch,
-      total: data.total.today_confirmed,
+      countries: data,
+      total: total.cases,
     },
   });
 };

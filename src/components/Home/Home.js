@@ -33,7 +33,7 @@ const Home = () => {
 
   const searchHandler = (e) => {
     const value = e.target.value.toLowerCase();
-    const list = countries.filter((country) => country.name.toLowerCase().includes(value));
+    const list = countries.filter((country) => country.continent.toLowerCase().includes(value));
     setDisplayedCountries(list);
   };
 
@@ -65,25 +65,23 @@ const Home = () => {
             {displayedCountries.map((country) => (
               <li
                 data-testid="listitem"
-                key={country.name}
+                key={country.continent}
                 className={`${styles.navlinks} py-3 px-2 bg-sky-700`}
               >
                 <NavLink
-                  key={country.name}
-                  to={`/${country.name}`}
+                  key={country.continent}
+                  to={`/${country.continent}`}
                   onClick={navlinkHandler}
-                  className="w-full flex flex-col items-center"
+                  className="w-full h-full flex flex-col items-center"
                 >
                   <GrMapLocation className="text-8xl text-center" />
-                  <div className="ml-auto text-white flex flex-col gap-2 text-3xl font-bold items-end">
+                  <div className="ml-auto text-white flex flex-col justify-end text-3xl font-bold items-end grow">
                     <span className="flex flex-col items-end">
-                      {country.name.split(' ').map((piece) => (
-                        <span key={piece}>{piece}</span>
+                      {country.continent.split(' ').map((piece) => (
+                        <span key={piece}>{piece.split('-')[0]}</span>
                       ))}
                     </span>
-                    <span>
-                      {country.today_confirmed.toLocaleString('en-US')}
-                    </span>
+                    <span>{country.cases.toLocaleString('en-US')}</span>
                   </div>
                 </NavLink>
               </li>
